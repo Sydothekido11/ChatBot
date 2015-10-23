@@ -22,6 +22,17 @@ public class ChatController
 		
 	public void start()
 	{
-		myChatView.displayResponse("Hello child." + myBot.getUserName());
+		myChatView.displayResponse("Hello child " + myBot.getUserName());
+		chat();
 	}
+	
+	private void chat()
+	{
+		String textFromUser = myChatView.getUserInput("Talk to the chatbot.");
+		while(myBot.lengthChecker(textFromUser))
+		{
+			textFromUser = myChatView.getUserInput("borf " + textFromUser);
+		}
+	}
+	
 }
