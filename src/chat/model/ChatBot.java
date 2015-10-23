@@ -21,7 +21,11 @@ public class ChatBot
 	 */
 	public ChatBot(String userName)
 	{
+		this.memesList = new ArrayList<String>();
+		this.politicalTopicList = new ArrayList<String>(); 
 		this.userName = userName;
+		this.content = "eating soup in the summertime. I'm addicted.";
+		
 	}
 	
 	private void buildMemesList()
