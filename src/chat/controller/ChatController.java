@@ -31,7 +31,14 @@ public class ChatController
 		String textFromUser = myChatView.getUserInput("Talk to the chatbot.");
 		while(myBot.lengthChecker(textFromUser))
 		{
-			textFromUser = myChatView.getUserInput("borf " + textFromUser);
+			
+			if(myBot.contentChecker(textFromUser))
+			{
+				myChatView.displayResponse("Cool, I love " + myBot.getContent() + " too.");
+			}
+			
+			
+			textFromUser = myChatView.getUserInput(textFromUser);
 		}
 	}
 	
