@@ -30,6 +30,10 @@ public class ChatBot
 		buildPoliticalTopicsList();		
 	}
 	
+	/**
+	 * Builds an array list of memes.
+	 * 
+	 */
 	private void buildMemesList()
 	{
 		
@@ -66,7 +70,6 @@ public class ChatBot
 				hasLength = true;
 			}
 		}
-		
 		
 		return hasLength;
 	}
@@ -107,7 +110,14 @@ public class ChatBot
 	 */
 	public boolean memeChecker(String currentInput)
 	{
-		return false;
+		boolean hasMemesList = false;
+		
+		for(String meme:memesList)
+		{
+			if(currentInput.equals(meme));
+		}
+		
+		return hasMemesList;
 	}
 	
 	/**
