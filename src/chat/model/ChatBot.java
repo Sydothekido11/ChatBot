@@ -110,14 +110,17 @@ public class ChatBot
 	 */
 	public boolean memeChecker(String currentInput)
 	{
-		boolean hasMemesList = false;
+		boolean hasMemes = false;
 		
-		for(String meme:memesList)
+		for(String meme : memesList)
 		{
-			if(currentInput.equals(meme));
+			if(currentInput.toLowerCase().contains(meme.toLowerCase()));
+			{
+				hasMemes = true;
+			}
 		}
 		
-		return hasMemesList;
+		return hasMemes;
 	}
 	
 	/**

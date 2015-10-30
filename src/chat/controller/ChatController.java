@@ -36,6 +36,10 @@ public class ChatController
 			{
 				myChatView.displayResponse("Cool, I love " + myBot.getContent() + " too.");
 			}
+			else if(myBot.memeChecker(textFromUser))
+			{
+				myChatView.displayResponse("wow look at you.");
+			}
 			
 			
 			textFromUser = myChatView.getUserInput(textFromUser);
