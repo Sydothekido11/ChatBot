@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
  * of the project.
  * @author Sydney Nemelka
- * @version 1.3 10/28/15 updated the lengthChecker method. Repaired getContent method. Built a buildMemesList. Completed the content checker.
+ * @version 1.4 11/3/15 made a switch case. 
  */
 public class ChatBot
 {
@@ -51,7 +51,7 @@ public class ChatBot
 	
 	private void buildPoliticalTopicsList()
 	{
-		
+		this.politicalTopicList.add("");
 	}
 	
 	/**
@@ -109,6 +109,7 @@ public class ChatBot
 	 * @return Whether the supplied String is a recognized meme.
 	 */
 	public boolean memeChecker(String currentInput)
+
 	{
 		boolean hasMemes = false;
 		
@@ -122,6 +123,51 @@ public class ChatBot
 		
 		return hasMemes;
 	}
+	
+	public String processQuestion(String currentInput)
+	{
+		String talkBack = "Anything else?";
+		int randomTopic = (int) (Math.random() * 5); //Generates a random number between 1 and 4.
+		
+		switch (randomTopic)
+		{
+		case 0:
+			if(contentChecker(currentInput))
+			{
+				talkBack = "Hey saaaame. What else?";
+			}
+			break;
+		case 1:
+			if(memeChecker(currentInput))
+			{
+				talkBack = "I like dat meme. I'm interested. Tell me more of the things.";
+			}
+			break;
+		case 2:
+			if(politicalTopicChecker(currentInput))
+			{
+				talkBack = "comment and question.";
+			}
+			break;
+		case 3:
+			if(currentInput.length() > 25)
+			{
+				talkBack = "Congrats. You like lengthy responses! If that's the case, do you take AP Classes? If so which ones?";
+			}
+			break;
+		case 4:
+			talkBack = "Swell. Real swell. Turtle or snake?";
+			break;
+		default:
+			talkBack = "Meow meow. How about kangaroos?";
+			break;
+			
+			
+		}
+		
+		return talkBack;
+	}
+	
 	
 	/**
 	 * Returns the username of this Chatbot instance.
