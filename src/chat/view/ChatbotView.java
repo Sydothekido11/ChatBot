@@ -16,7 +16,7 @@ public class ChatbotView
 	public ChatbotView()
 	{
 		windowMessage = "This message is brought to you by the chatbot.";
-		chatIcon = new ImageIcon(getClass().getResource("images/chatbot.png"));
+		chatIcon = new ImageIcon(getClass().getResource("images/botIcon.png"));
 	}
 	/**
 	 * This displays the text in a popup window and collects the user input.
