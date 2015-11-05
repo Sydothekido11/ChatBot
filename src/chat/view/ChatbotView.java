@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 /**
  * This class displays the popup.
  * @author snem8901
- *@version 1.1 11/4/15 Added a constructor.
+ *@version 1.2 11/4/15 Added a constructor and an icon to the input window.
  */
 public class ChatbotView
 {
@@ -28,7 +28,7 @@ public class ChatbotView
 				
 			String answer = "";
 					
-			answer = JOptionPane.showInputDialog(null, displayText);
+			answer = JOptionPane.showInputDialog(null, displayText, windowMessage, JOptionPane.INFORMATION_MESSAGE, chatIcon, null, "Type here yo.").toString();
 			
 			return answer;
 			
