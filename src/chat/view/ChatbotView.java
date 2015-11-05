@@ -40,7 +40,7 @@ public class ChatbotView
 		 */
 		public void displayResponse(String displayText)
 		{
-			JOptionPane.showMessageDialog(null, displayText, windowMessage, JOptionPane.PLAIN_MESSAGE, chatIcon,);
+			JOptionPane.showMessageDialog(null, displayText, windowMessage, JOptionPane.PLAIN_MESSAGE, chatIcon);
 		}
 }
 
