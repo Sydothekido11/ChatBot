@@ -20,7 +20,7 @@ public class ChatController
 		myChatView = new ChatbotView();
 		String user = myChatView.getUserInput("What is your name?");
 		myBot = new ChatBot(user);
-		chatFrame = new ChatFrame();
+		chatFrame = new ChatFrame(this);
 	}
 		
 	public void start()
