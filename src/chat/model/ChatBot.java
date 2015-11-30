@@ -166,37 +166,20 @@ public class ChatBot
 	
 	public String keyboardMashChecker(String currentInput)
 	{
-		String keyboardMash = "dfgds";
+		String keyboardMash;
 		int randomMessage = (int) (Math.random() * 7);
 		
 		switch (randomMessage)
 		{
-		case 0:
-			if(contentChecker(currentInput))
-			{
-				keyboardMash = "Mash not detected.";
-			}
+		case 0:keyboardMash = "Mash not detected.";
 			break;
-		case 1:
-			if(memeChecker(currentInput))
-			{
-				keyboardMash = "Mash not detected.";
-			}
+		case 1:keyboardMash = "Mash not detected.";
 			break;
-		case 2:
-			if(politicalTopicChecker(currentInput))
-			{
-				keyboardMash = "Mash not detected.";
-			}
+		case 2:keyboardMash = "Mash not detected.";
 			break;
-		case 3:
-			if(currentInput.length() > 30)
-			{
-				keyboardMash = "Mash not detected.";
-			}
+		case 3:keyboardMash = "Mash not detected.";
 			break;
-		case 4:
-			keyboardMash = "Mash not detected.";
+		case 4:keyboardMash = "Mash not detected.";
 			break;
 		case 5:
 			keyboardMash = "Mash not detected.";
