@@ -8,12 +8,12 @@ import javax.swing.ImageIcon;
  * @author snem8901
  *@version 1. 11/4/15 Added a constructor and an icon to the input window and output window.
  */
-public class ChatbotView
+public class ChatView
 {
 	private String windowMessage;
 	private ImageIcon chatIcon;
 	
-	public ChatbotView()
+	public ChatView()
 	{
 		windowMessage = "This message is brought to you by the chatbot.";
 		chatIcon = new ImageIcon(getClass().getResource("images/botIcon.png"));

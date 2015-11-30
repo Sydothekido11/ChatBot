@@ -12,6 +12,7 @@ public class ChatBot
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
+	private ArrayList<String> quitApp;
 	private String userName;
 	private String content;
 	
@@ -147,6 +148,71 @@ public class ChatBot
 		return hasMemes;
 	}
 	
+	public boolean quitChecker(String currentInput)
+	
+	{
+		boolean hasQuit = false;
+		
+		for(String quit : quitApp)
+		{
+			if(currentInput.toLowerCase().contains(quit.toLowerCase()));
+			{
+				hasQuit = true;
+			}
+		}
+		
+		return hasQuit;
+	}
+	
+	public String keyboardMashChecker(String currentInput)
+	{
+		String keyboardMash = "dfgds";
+		int randomMessage = (int) (Math.random() * 7);
+		
+		switch (randomMessage)
+		{
+		case 0:
+			if(contentChecker(currentInput))
+			{
+				keyboardMash = "Mash not detected.";
+			}
+			break;
+		case 1:
+			if(memeChecker(currentInput))
+			{
+				keyboardMash = "Mash not detected.";
+			}
+			break;
+		case 2:
+			if(politicalTopicChecker(currentInput))
+			{
+				keyboardMash = "Mash not detected.";
+			}
+			break;
+		case 3:
+			if(currentInput.length() > 30)
+			{
+				keyboardMash = "Mash not detected.";
+			}
+			break;
+		case 4:
+			keyboardMash = "Mash not detected.";
+			break;
+		case 5:
+			keyboardMash = "Mash not detected.";
+			break;
+		case 6: 
+			keyboardMash = "Mash not detected.";
+			break;
+		default:
+			keyboardMash = "meow meow.";
+			break;
+			
+		}
+		
+		return keyboardMash;
+	}
+	
 	public String processQuestion(String currentInput)
 	{
 		String talkBack = "Anything else?";
@@ -236,5 +302,7 @@ public class ChatBot
 	{
 		
 	}
+	
+	
 }
 

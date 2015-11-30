@@ -3,7 +3,6 @@ package chat.view;
 import javax.swing.JFrame;
 import chat.controller.ChatController;
 
-
 public class ChatFrame extends JFrame
 {
 	private ChatController baseController;
@@ -17,11 +16,12 @@ public class ChatFrame extends JFrame
 		setupFrame();
 	}
 	
+
 	private void setupFrame()
 	{
 		this.setContentPane(basePanel);
 		this.setResizable(false);
-		this.setTitle("My chitty chat chat.");
+		this.setTitle("My chitty chat chatbot.");
 		this.setSize(400,400);
 		this.setVisible(true);
 	}

@@ -36,9 +36,14 @@ public class ChatPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(chatLayout);
+		this.setBackground(Color.CYAN);
+		this.add(chatTextArea);
 		this.add(chatButton);
 		this.add(chatTextField);
-		this.setBackground(Color.CYAN);
+		chatTextField.setToolTipText("Type here for the chatbot");
+		chatTextArea.setEnabled(false);
+		
+	
 		
 	}
 	
@@ -50,6 +55,11 @@ public class ChatPanel extends JPanel
 		chatLayout.putConstraint(SpringLayout.SOUTH, chatTextField, -176, SpringLayout.SOUTH, this);
 		chatLayout.putConstraint(SpringLayout.NORTH, chatButton, 47, SpringLayout.SOUTH, chatTextField);
 		
+	}
+	
+	public JTextField getTextField()
+	{
+		return chatTextField;
 	}
 
 	private void setupListeners()
@@ -69,12 +79,4 @@ public class ChatPanel extends JPanel
 		
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }
