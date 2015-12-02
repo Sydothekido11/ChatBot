@@ -12,7 +12,7 @@ public class ChatBot
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
-	private String exit;
+	private String quit;
 	private String userName;
 	private String content;
 	
@@ -153,7 +153,7 @@ public class ChatBot
 	{
 		boolean hasQuit = false;
 		
-			if(currentInput.toLowerCase().contains(exit.toLowerCase()));
+			if(currentInput.toLowerCase().contains(quit.toLowerCase()));
 			{
 				hasQuit = true;
 			}
