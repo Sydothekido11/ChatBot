@@ -12,7 +12,7 @@ public class ChatBot
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
-	private ArrayList<String> quitApp;
+	private String exit;
 	private String userName;
 	private String content;
 	
@@ -38,7 +38,7 @@ public class ChatBot
 	private void buildMemesList()
 	{
 		
-		this.memesList.add("Doge");
+		this.memesList.add("doge");
 		this.memesList.add("Unamused face");
 		this.memesList.add("Soon");
 		this.memesList.add("Life with a cat");
@@ -53,8 +53,8 @@ public class ChatBot
 	private void buildPoliticalTopicsList()
 	{
 		this.politicalTopicList.add("election");
-		this.politicalTopicList.add("democrat");
-		this.politicalTopicList.add("republican");
+		this.politicalTopicList.add("Democrat");
+		this.politicalTopicList.add("Republican");
 		this.politicalTopicList.add("liberal");
 		this.politicalTopicList.add("conservative");
 		this.politicalTopicList.add("Trump");
@@ -65,7 +65,7 @@ public class ChatBot
 		this.politicalTopicList.add("Fiorina");
 		this.politicalTopicList.add("Sanders");
 		this.politicalTopicList.add("vote");
-		this.politicalTopicList.add("11/8/2016");
+		this.politicalTopicList.add("11/4/16");
 	}
 	
 	/**
@@ -153,53 +153,34 @@ public class ChatBot
 	{
 		boolean hasQuit = false;
 		
-		for(String quit : quitApp)
-		{
-			if(currentInput.toLowerCase().contains(quit.toLowerCase()));
+			if(currentInput.toLowerCase().contains(exit.toLowerCase()));
 			{
 				hasQuit = true;
 			}
-		}
+		
 		
 		return hasQuit;
 	}
 	
-	public String keyboardMashChecker(String currentInput)
+	public boolean keyboardMashChecker(String currentInput)
 	{
-		String keyboardMash;
-		int randomMessage = (int) (Math.random() * 7);
-		
-		switch (randomMessage)
+		boolean isMash = false;
+		if(currentInput.equals("sdf") || currentInput.equals(",./") || currentInput.equals("dfg") || currentInput.equals("cvb"))
 		{
-		case 0:keyboardMash = "Mash not detected.";
-			break;
-		case 1:keyboardMash = "Mash not detected.";
-			break;
-		case 2:keyboardMash = "Mash not detected.";
-			break;
-		case 3:keyboardMash = "Mash not detected.";
-			break;
-		case 4:keyboardMash = "Mash not detected.";
-			break;
-		case 5:
-			keyboardMash = "Mash not detected.";
-			break;
-		case 6: 
-			keyboardMash = "Mash not detected.";
-			break;
-		default:
-			keyboardMash = "meow meow.";
-			break;
-			
+			 isMash = true;
 		}
-		
-		return keyboardMash;
+		return isMash;
 	}
 	
 	public String processQuestion(String currentInput)
 	{
 		String talkBack = "Anything else?";
 		int randomTopic = (int) (Math.random() * 5); //Generates a random number between 1 and 4.
+		
+		if(keyboardMashChecker(currentInput))
+		{
+			return "Stop mashing the keyboard!!";
+		}
 		
 		switch (randomTopic)
 		{
@@ -265,7 +246,7 @@ public class ChatBot
 	 */
 	public ArrayList<String> getMemesList()
 	{
-		return null;
+		return memesList;
 	}
 	
 	/**
@@ -274,7 +255,7 @@ public class ChatBot
 	 */
 	public ArrayList<String> getPoliticalTopicList()
 	{
-		return null;
+		return politicalTopicList;
 	}
 	
 	/**

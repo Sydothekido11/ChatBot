@@ -46,9 +46,39 @@ public class ChatController
 	{
 		String botResponse ="";
 		
+		if(myBot.quitChecker(textFromUser))
+		{
+			shutDown();
+		}
+		
 		botResponse = myBot.processQuestion(textFromUser);
 		
 		return botResponse;
 	}
+	
+	private void shutDown()
+	{
+		myChatView.displayResponse("Goodbye, " + myBot.getUserName() + "it was swell good sir");
+		System.exit(0);
+	}
+
+	public ChatBot getChatbot()
+	{
+		return null;
+	}
+	
+	public ChatView getChatView()
+	{
+		return null;
+	}
+	
+	public ChatFrame getBaseFrame()
+	{
+		return null;
+	}
+	
+	
+
+	
 	
 }
