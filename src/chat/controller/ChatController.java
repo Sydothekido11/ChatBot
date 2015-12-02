@@ -26,7 +26,7 @@ public class ChatController
 	public void start()
 	{
 		myChatView.displayResponse("Hello child " + myBot.getUserName());
-		chat();
+		//chat();
 	}
 	
 	private void chat()
@@ -35,20 +35,20 @@ public class ChatController
 		while(myBot.lengthChecker(textFromUser))
 		{
 			
-			if(myBot.contentChecker(textFromUser))
-			{
-				myChatView.displayResponse("Cool, I love " + myBot.getContent() + " too.");
-			}
-			else if(myBot.memeChecker(textFromUser))
-			{
-				myChatView.displayResponse("wow look at you.");
-			}
-			
-			
+			textFromUser = myBot.processQuestion(textFromUser);
 			textFromUser = myChatView.getUserInput(textFromUser);
 		}
 		
 	
+	}
+	
+	public String fromUserToChatbot(String textFromUser)
+	{
+		String botResponse ="";
+		
+		botResponse = myBot.processQuestion(textFromUser);
+		
+		return botResponse;
 	}
 	
 }

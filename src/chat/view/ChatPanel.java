@@ -16,6 +16,7 @@ public class ChatPanel extends JPanel
 {
 	private ChatController baseController;
 	private JButton chatButton;
+	private JButton submitButton;
 	private JTextField chatTextField;
 	private SpringLayout chatLayout;
 	private JTextArea chatTextArea;
@@ -24,9 +25,10 @@ public class ChatPanel extends JPanel
 	{
 		this.baseController = baseController;
 		chatLayout = new SpringLayout();
+		submitButton = new JButton("");
 		chatButton = new JButton("Press here yo.");
-		chatTextField = new JTextField("Type something!");
-		chatTextArea = new JTextArea("");
+		chatTextField = new JTextField(30);
+		chatTextArea = new JTextArea(10,30);
 		
 		setupPanel();
 		setupLayout();
@@ -40,6 +42,7 @@ public class ChatPanel extends JPanel
 		this.add(chatTextArea);
 		this.add(chatButton);
 		this.add(chatTextField);
+		this.add(submitButton);
 		chatTextField.setToolTipText("Type here for the chatbot");
 		chatTextArea.setEnabled(false);
 		
@@ -49,11 +52,16 @@ public class ChatPanel extends JPanel
 	
 	private void setupLayout()
 	{
-		chatLayout.putConstraint(SpringLayout.WEST, chatButton, 169, SpringLayout.WEST, this);
-		chatLayout.putConstraint(SpringLayout.NORTH, chatTextField, 96, SpringLayout.NORTH, this);
-		chatLayout.putConstraint(SpringLayout.WEST, chatTextField, 6, SpringLayout.WEST, chatButton);
-		chatLayout.putConstraint(SpringLayout.SOUTH, chatTextField, -176, SpringLayout.SOUTH, this);
-		chatLayout.putConstraint(SpringLayout.NORTH, chatButton, 47, SpringLayout.SOUTH, chatTextField);
+		chatLayout.putConstraint(SpringLayout.SOUTH, submitButton, -21, SpringLayout.SOUTH, this);
+		chatLayout.putConstraint(SpringLayout.WEST, chatButton, 69, SpringLayout.WEST, this);
+		chatLayout.putConstraint(SpringLayout.SOUTH, chatButton, 0, SpringLayout.SOUTH, submitButton);
+		chatLayout.putConstraint(SpringLayout.SOUTH, chatTextField, -30, SpringLayout.NORTH, chatButton);
+		chatLayout.putConstraint(SpringLayout.NORTH, chatTextField, 5, SpringLayout.SOUTH, chatTextArea);
+		chatLayout.putConstraint(SpringLayout.EAST, chatTextField, 0, SpringLayout.EAST, chatTextArea);
+		chatLayout.putConstraint(SpringLayout.NORTH, chatTextArea, 25, SpringLayout.NORTH, this);
+		chatLayout.putConstraint(SpringLayout.SOUTH, chatTextArea, -113, SpringLayout.SOUTH, this);
+		chatLayout.putConstraint(SpringLayout.EAST, chatTextArea, -21, SpringLayout.EAST, this);
+		chatLayout.putConstraint(SpringLayout.EAST, submitButton, 0, SpringLayout.EAST, chatTextArea);
 		
 	}
 	
@@ -76,7 +84,22 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
-		
-		
+		submitButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String userText = chatTextField.getText();	//Grab user from text
+				String response = baseController.fromUserToChatbot(userText);	//Send the text to the controller, gives text to chatbot to process, gets chatbot answer.
+				chatTextArea.append("\nUser: " + userText);	//displays user text
+				chatTextArea.append("\nChatbot: " + response); //displays answer
+				chatTextField.setText("");	//clears the user field
+				
+			}
+		});	
+	}
+	
+	public JButton getButton()
+	{
+		return submitButton;
 	}
 }
