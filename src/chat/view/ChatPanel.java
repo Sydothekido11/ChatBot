@@ -20,7 +20,13 @@ public class ChatPanel extends JPanel
 	private JTextField chatTextField;
 	private SpringLayout chatLayout;
 	private JTextArea chatTextArea;
-	
+
+	/**
+	 * Panel for the chatbot. Setup the panel, layout and listeners.
+	 * @author snem8901
+	 * @param baseController
+	 * @version 1.3 12/4/15
+	 */
 	public ChatPanel(ChatController baseController)
 	{
 		this.baseController = baseController;
@@ -35,6 +41,9 @@ public class ChatPanel extends JPanel
 		setupListeners();
 	}
 	
+	/**
+	 * Puts in the buttons and textfields needed for the panel.
+	 */
 	private void setupPanel()
 	{
 		this.setLayout(chatLayout);
@@ -50,6 +59,9 @@ public class ChatPanel extends JPanel
 		
 	}
 	
+	/**
+	 * Holds the garbage code.
+	 */
 	private void setupLayout()
 	{
 		chatLayout.putConstraint(SpringLayout.SOUTH, submitButton, -21, SpringLayout.SOUTH, this);
@@ -65,11 +77,19 @@ public class ChatPanel extends JPanel
 		
 	}
 	
+	/**
+	 * Makes the text field available.
+	 * @return
+	 */
 	public JTextField getTextField()
 	{
 		return chatTextField;
 	}
 
+	/**
+	 * Listeners for the chatButton and the submitButton. chatButton changes the colors when pressed 
+	 * while the submitButton gets text from the controller.
+	 */
 	private void setupListeners()
 	{
 		chatButton.addActionListener(new ActionListener()
