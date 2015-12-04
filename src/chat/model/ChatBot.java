@@ -147,7 +147,11 @@ public class ChatBot
 		
 		return hasMemes;
 	}
-	
+	/**
+	 * Makes the program quit when the user wants to exit out.
+	 * @param currentInput
+	 * @return
+	 */
 	public boolean quitChecker(String currentInput)
 	
 	{
@@ -161,7 +165,11 @@ public class ChatBot
 		
 		return hasQuit;
 	}
-	
+	/**
+	 * Checks if the user is putting in keyboard mash.
+	 * @param currentInput
+	 * @return
+	 */
 	public boolean keyboardMashChecker(String currentInput)
 	{
 		boolean isMash = false;

@@ -3,6 +3,11 @@ package chat.view;
 import javax.swing.JFrame;
 import chat.controller.ChatController;
 
+/**
+ * Sets up the frame for the GUI. Sets the size, visibility, and title.
+ * @author snem8901
+ *
+ */
 public class ChatFrame extends JFrame
 {
 	private ChatController baseController;

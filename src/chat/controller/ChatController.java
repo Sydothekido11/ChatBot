@@ -9,6 +9,8 @@ import chat.view.ChatFrame;
  * @author snem8901
  * @version 1.4 12/4/15 Displays the Chatbot's userName variable. Made a while loop as well. 
  * Added the getters for Chabot, Chatview and Chatframe
+ * Made a method that shuts down the chatbot and displays a farewell message.
+ * Made a fromUserToChatbot method that takes the text from the controller and sends it to the Panel.
  */
 public class ChatController
 {
