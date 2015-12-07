@@ -152,18 +152,18 @@ public class ChatBot
 	 * @param currentInput
 	 * @return
 	 */
-	public boolean quitChecker(String currentInput)
+	public boolean quitChecker(String exit)
 	
 	{
-		boolean hasQuit = false;
+		boolean quit = true;
 		
-			if(currentInput.toLowerCase().contains(quit.toLowerCase()));
+			if(exit.toLowerCase().contains(exit.toLowerCase()));
 			{
-				hasQuit = true;
+				quit = false;
 			}
 		
 		
-		return hasQuit;
+		return quit;
 	}
 	/**
 	 * Checks if the user is putting in keyboard mash.
