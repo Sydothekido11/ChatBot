@@ -112,7 +112,7 @@ public class ChatPanel extends JPanel
 				String response = baseController.fromUserToChatbot(userText);	//Send the text to the controller, gives text to chatbot to process, gets chatbot answer.
 				chatTextArea.append("\nUser: " + userText);	//displays user text
 				chatTextArea.append("\nChatbot: " + response); //displays answer
-				chatTextField.setText("Submit");	//clears the user field
+				chatTextField.setText("Submit");	
 				
 			}
 		});	
