@@ -152,14 +152,14 @@ public class ChatBot
 	 * @param currentInput
 	 * @return
 	 */
-	public boolean quitChecker(String exit)
+	public boolean quitChecker(String currentInput)
 	
 	{
-		boolean quit = true;
+		boolean quit = false;
 		
-			if(exit.toLowerCase().contains(exit.toLowerCase()));
+			if(currentInput.toLowerCase().equals("quit"))
 			{
-				quit = false;
+				quit = true;
 			}
 		
 		
@@ -272,7 +272,7 @@ public class ChatBot
 	 */
 	public void setContent(String content)
 	{
-		
+		this.content = content;
 	}
 	
 	
