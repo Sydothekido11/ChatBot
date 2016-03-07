@@ -17,6 +17,7 @@ public class ChatPanel extends JPanel
 	private ChatController baseController;
 	private JButton chatButton;
 	private JButton submitButton;
+	private JButton tweetButton;
 	private JTextField chatTextField;
 	private SpringLayout chatLayout;
 	private JTextArea chatTextArea;
@@ -33,6 +34,7 @@ public class ChatPanel extends JPanel
 		chatLayout = new SpringLayout();
 		submitButton = new JButton("Submit");
 		chatButton = new JButton("Press here for colors.");
+		tweetButton = new JButton("Send a tweet.");
 		chatTextField = new JTextField(30);
 		chatTextArea = new JTextArea(10,30);
 		
@@ -52,6 +54,7 @@ public class ChatPanel extends JPanel
 		this.add(chatButton);
 		this.add(chatTextField);
 		this.add(submitButton);
+		this.add(tweetButton);
 		chatTextField.setToolTipText("Type here for the chatbot");
 		chatTextArea.setEnabled(false);
 		
@@ -116,8 +119,19 @@ public class ChatPanel extends JPanel
 				
 			}
 		});	
-	}
+		
+		tweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+			 
+				baseController.sendTweet("tweet");
+				
+			}
+		});
+		
 	
+	}
 	public JButton getButton()
 	{
 		return submitButton;
