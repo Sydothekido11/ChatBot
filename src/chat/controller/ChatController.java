@@ -3,6 +3,7 @@ package chat.controller;
 import chat.model.ChatBot;
 import chat.view.ChatView;
 import chat.view.ChatFrame;
+import chat.model.CTECTwitter;
 
 /**
  * Controller for the Chatbot project. Created a popup for the user name, and displays the response. 
@@ -17,9 +18,11 @@ public class ChatController
 	private ChatBot myBot;
 	private ChatView myChatView;
 	private ChatFrame chatFrame;
+	private CTECTwitter myTwitter;
 	
 	public ChatController()
 	{
+		myTwitter = new CTECTwitter(this);
 		myChatView = new ChatView();
 		String user = myChatView.getUserInput("What is your name?");
 		myBot = new ChatBot(user);
@@ -80,7 +83,15 @@ public class ChatController
 		return null;
 	}
 	
+	public void handleErrors(String error)
+	{
+		myChatView.displayResponse(error);
+	}
 	
+	public void sendTweet(String tweet)
+	{
+		myTwitter.sendTweet(tweet);
+	}
 
 	
 	
