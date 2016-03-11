@@ -83,6 +83,12 @@ public class ChatController
 		return null;
 	}
 	
+	public String analyze(String userName)
+	{
+		String userAnalysis = "The Twitter user " + userName + "has...";
+		return userAnalysis;
+	}
+	
 	public void handleErrors(String error)
 	{
 		myChatView.displayResponse(error);
