@@ -14,8 +14,8 @@ public class CTECTwitter
 {
 
 	private Twitter chatbotTwitter;
-	private List statusList;
-	private List wordsList;
+	private ArrayList<Status> statusList;
+	private ArrayList<String> wordsList;
 	private ChatController baseController;
 	
 	
