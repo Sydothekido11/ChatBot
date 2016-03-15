@@ -147,7 +147,7 @@ public class CTECTwitter
 		return boringWords;
 	}
 	
-	private String topResults()
+	public String topResults()
 	{
 		String tweetResults = "";
 		 
