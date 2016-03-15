@@ -85,7 +85,7 @@ public class ChatController
 	
 	public String analyze(String userName)
 	{
-		String userAnalysis = "The Twitter user " + userName + "has...";
+		String userAnalysis = "The Twitter user " + userName + "has many tweets. ";
 		return userAnalysis;
 	}
 	
@@ -99,6 +99,6 @@ public class ChatController
 		myTwitter.sendTweet(tweet);
 	}
 
-	
+
 	
 }
