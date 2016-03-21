@@ -116,6 +116,18 @@ public class CTECTwitter
 		}
 	 return scrubbedString;
 	}
+	
+	public void removeTwitterUsernamesFromList(List<String> wordsList)
+	{
+		for (int wordCount = 0; wordCount < wordsList.size(); wordCount++)
+		{
+			if(wordsList.get(wordCount).length() >= 1 && wordsList.get(wordCount).charAt(0) == '@')
+			{
+				wordsList.remove(wordCount);
+				wordCount--;
+			}
+		}
+	}
 
 	private String[] importWordsToArray()
 	{
