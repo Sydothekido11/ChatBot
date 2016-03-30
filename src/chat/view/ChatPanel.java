@@ -3,8 +3,10 @@ package chat.view;
 import javax.swing.JPanel;
 
 import chat.controller.ChatController;
+import chat.controller.IOController;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.JTextArea;
@@ -19,9 +21,12 @@ public class ChatPanel extends JPanel
 	private JButton submitButton;
 	private JButton tweetButton;
 	private JButton analyzeTwitterButton;
+	private JButton saveButton;
+	private JButton loadButton;
 	private JTextField chatTextField;
 	private SpringLayout chatLayout;
 	private JTextArea chatTextArea;
+	private JLabel promptLabel;
 
 	/**
 	 * Panel for the chatbot. Setup the panel, layout and listeners.
@@ -36,7 +41,11 @@ public class ChatPanel extends JPanel
 		submitButton = new JButton("Submit");
 		chatButton = new JButton("Press here for colors.");
 		tweetButton = new JButton("Send a tweet.");
+		saveButton = new JButton("Save!");
+		loadButton = new JButton("Load!");
 		analyzeTwitterButton = new JButton("");
+		promptLabel = new JLabel("");
+		
 		chatTextField = new JTextField(30);
 		chatTextArea = new JTextArea(10,30);
 		
@@ -58,6 +67,9 @@ public class ChatPanel extends JPanel
 		this.add(submitButton);
 		this.add(tweetButton);
 		this.add(analyzeTwitterButton);
+		this.add(saveButton);
+		this.add(loadButton);
+		this.add(promptLabel);
 		chatTextField.setToolTipText("Type here for the chatbot");
 		chatTextArea.setEnabled(false);
 		
@@ -144,6 +156,25 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
+		saveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String file = IOController.saveFile(chatTextArea.getText());
+				promptLabel.setText(file);
+			}
+			
+		});
+		
+		loadButton.addActionListener(new ActionListener()
+		{
+			
+			public void actionPerformed(ActionEvent click)
+			{
+				String loadedText = IOController.readTextFromFile(promptLabel.getText());
+				chatTextArea.setText(loadedText);
+			}
+		});
 		
 	
 	}
