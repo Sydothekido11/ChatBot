@@ -194,14 +194,14 @@ public class CTECTwitter
 	{
 		String results = "";
 		
-		Query query = new Query("Your Lie in April");
+		Query query = new Query("lit");
 		query.setCount(100);
-		query.setGeoCode(new GeoLocation(40.587, -111.869), 5, Query.MILES);
+		query.setGeoCode(new GeoLocation(40.517691,-111.871743 ), 5, Query.MILES);
 		query.setSince("2016-1-1");
 		try
 		{
 			QueryResult result = chatbotTwitter.search(query);
-			results.concat("Count : " + result.getTweets());
+			results += "Count : " + result.getTweets().size() + "\n";
 			for (Status tweet : result.getTweets())
 			{
 				results.concat("@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n");
